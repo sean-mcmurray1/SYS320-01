@@ -1,8 +1,9 @@
-﻿$browser = Get-Process -Name chrome
+﻿function startChromeChamplain{
+$browser = Get-Process -Name chrome -ErrorAction SilentlyContinue
 
 if ($browser){
     Stop-Process -Name chrome
 }
-else {
-    Start-Process "chrome.exe" "https://champlain.edu"
+Start-Process chrome.exe "https://champlain.edu"
 }
+#startChromeChamplain
