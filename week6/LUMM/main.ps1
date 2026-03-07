@@ -174,7 +174,8 @@ while($operation){
     elseif($choice -eq 9){
         
         $days = Read-Host "How many days back?"
-        atRiskUsers $days
+        $failed = atRiskUsers $days
+        $Failed | Format-Table -AutoSize | Out-String
     }
 
     else {

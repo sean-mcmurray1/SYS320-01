@@ -1,4 +1,5 @@
-﻿. (Join-Path $PSScriptRoot String-Helper.ps1)
+﻿$here = Split-Path -Parent $PSCommandPath
+. (Join-Path $here "String-Helper.ps1")
 
 
 <# ******************************
@@ -65,6 +66,10 @@ function getFailedLogins($timeBack){
     return $failedloginsTable
 } # End of function getFailedLogins
 function atRiskUsers($timeBack){
-     getFailedLogins $timeBack | Group-Object User | Where-Object { $_.Count -gt 10 } | Sort-Object Count -Descending |
-     Format-Table Name, @{Label="Failed Attempts"; Expression={$_.Count}} -AutoSize
+    getFailedLogins $timeBack |
+        Group-Object User |
+        Where-Object { $_.Count -gt 10 } |
+        Sort-Object Count -Descending |
+        Select-Object @{Name="User";Expression={$_.Name}},
+                      @{Name="FailedAttempts";Expression={$_.Count}}
 }
