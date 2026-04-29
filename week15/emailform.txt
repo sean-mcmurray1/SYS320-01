@@ -1,4 +1,5 @@
 To: sean.mcmurray@mymail.champlain.edu
-Subject: Failed Logins
-Apr 22 12-52-21 champuser
-Apr 22 12-52-25 champuser
+Subject: userlogs accessed
+Wed Apr 29 05-24-25 pm
+Wed Apr 29 05-24-55 pm
+Wed Apr 29 05-25-39 pm
